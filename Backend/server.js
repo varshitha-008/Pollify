@@ -4,6 +4,8 @@ import cors from 'cors';
 import loginrouter from './routes/Login.js';
 import connectDB from './configs/db.js';
 import bodyParser from 'body-parser';
+import Otprouter from './routes/otprouter.js';
+
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -14,7 +16,9 @@ app.use(bodyParser.json());
 //     next();
 // });
 
-// app.use('/',router);
+// app.post('/sendemail', emailSender);
+app.use('/api', Otprouter);
+
 app.use('/api',loginrouter)
 app.use('/', (req, res) => {
     res.send("this is home route");
@@ -32,7 +36,7 @@ app.listen(PORT, async () => {
         //         console.error('Unable to sync database:', error);
         //     });
 
-        console.log('sql connected succesfully');
+        // console.log('sql connected succesfully');
         connectDB()
         console.log('mongo connected');
         console.log(`sever is runing at ${PORT}`);
