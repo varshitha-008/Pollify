@@ -118,9 +118,12 @@ const LoginForm = () => {
           <Button type="submit" colorScheme="teal">Login</Button>
         </VStack>
       </form><br/>
-       <p>Create an Account <Button as={Link} to="/Signup" size="md"  >
+       <p>Create an Account <Text color={"blue"} as={Link} to="/Signup" size="md"  >
          Signup
-       </Button> </p>
+       </Text> </p>
+       <p> <Text color={"blue"} as={Link} to="/forgotpassword" size="md"  >
+         ForgotPassword
+       </Text> </p>
     </Box>
   );
 };

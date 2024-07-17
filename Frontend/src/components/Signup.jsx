@@ -47,11 +47,7 @@ import { Link } from 'react-router-dom';
 //       <form onSubmit={handleSubmit}>
 //         <FormControl id="name" isRequired>
 //           <FormLabel>Name</FormLabel>
-//           <Input
-//             type="text"
-//             value={name}
-//             onChange={(e) => setName(e.target.value)}
-//           />
+
 //         </FormControl>
 //         <FormControl id="email" mt="4" isRequired>
 //           <FormLabel>Email</FormLabel>
@@ -86,7 +82,7 @@ import { Link } from 'react-router-dom';
 
 import React, { useState } from 'react';
 import axios from './api';
-import { Box, Button, Input, Text, VStack } from '@chakra-ui/react';
+import { FormControl,FormLabel,Box, Button, Input, Text, VStack } from '@chakra-ui/react';
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
@@ -116,13 +112,19 @@ const RegisterForm = () => {
       <Text fontSize="2xl">Register</Text>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4}>
-          <Input
+        <FormControl id="name" isRequired>
+          <FormLabel>Name</FormLabel>
+            <Input
             type="text"
             placeholder="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             required
           />
+         </FormControl>
+          
+        <FormControl id="email" isRequired>
+          <FormLabel>Email</FormLabel>
           <Input
             type="email"
             placeholder="Email"
@@ -130,6 +132,10 @@ const RegisterForm = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+         </FormControl>
+         
+        <FormControl id="password" isRequired>
+          <FormLabel>PassWord</FormLabel>
           <Input
             type="password"
             placeholder="Password"
@@ -137,15 +143,17 @@ const RegisterForm = () => {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+         </FormControl>
           {error && <Text color="red.500">{error}</Text>}
           {success && <Text color="green.500">{success}</Text>}
           <Button type="submit" colorScheme="teal">Register</Button>
         </VStack>
       </form>
       <br/>
-       <p>Alredy have an account <Button as={Link} to="/" size="md"  >
+       <p>Alredy have an account <Text color={"blue"} as={Link} to="/" size="md"  >
          Login
-       </Button> </p>
+       </Text> </p>
+       
     </Box>
   );
 };
