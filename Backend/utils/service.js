@@ -1,6 +1,8 @@
 import nodemailer from 'nodemailer';
 import 'dotenv/config';
 import Customer from '../models/Loginmodel.js';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
 
 // Temporary store for OTPs
 const otpStore = new Map();
@@ -11,7 +13,7 @@ const generateOTP = () => {
 
 export const emailSender = async (req, res) => {
   const { email } = req.body;
-  if (!email ) {
+  if (!email) {
     return res.status(400).send("Invalid request body. 'email' is required.");
   }
   const userExist = await Customer.findOne({ email });
@@ -46,6 +48,7 @@ export const emailSender = async (req, res) => {
     return res.status(500).send("Failed to send email.");
   }
 };
+// import jwt from 'jsonwebtoken';
 
 export const verifyOTP = (req, res) => {
   const { email, otp } = req.body;
@@ -57,23 +60,49 @@ export const verifyOTP = (req, res) => {
   const storedOtp = otpStore.get(email);
   if (storedOtp === otp) {
     otpStore.delete(email); // OTP is valid, remove it from store
-    return res.status(200).send("OTP verified successfully.");
+
+    // Generate and sign the JWT token
+    const token = jwt.sign({ email }, process.env.JWT_SECRET, {
+      expiresIn: '12h', 
+    });
+
+    // Send the token along with success response
+    return res.status(200).json({ message: "OTP verified successfully.", token });
   } else {
     return res.status(400).send("Invalid OTP.");
   }
 };
 
 export const changePassword = async (req, res) => {
-    const { token, newPassword } = req.body;
-  
-    try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
-      const hashedPassword = await bcrypt.hash(newPassword, 10);
-      await Customer.updateOne({ _id: decoded.id }, { password: hashedPassword });
-  
-      return res.status(200).send('Password changed successfully');
-    } catch (error) {
-      console.error(error);
-      return res.status(400).send('Failed to change password');
+  const { token, newPassword } = req.body;
+
+  if (!token || !newPassword) {
+    return res.status(400).send('Token and new password are required.');
+  }
+  console.log("user", req.body);
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    console.log("decoded", decoded);
+    console.log("decodedEmail", decoded.email);
+
+    const userExist = await Customer.findOne({ email: decoded.email });
+    console.log(userExist);
+
+    if (!userExist) {
+      return res.status(400).send("User does not exist. Try to sign up.");
     }
-  };
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    userExist.password = hashedPassword;
+    await userExist.save();
+
+    return res.status(200).send('Password changed successfully');
+  } catch (error) {
+    console.error('Error during password change:', error); // More detailed error logging
+    if (error instanceof jwt.JsonWebTokenError) {
+      return res.status(400).send('Invalid or malformed token.');
+    }
+    return res.status(500).send('Failed to change password');
+  }
+};

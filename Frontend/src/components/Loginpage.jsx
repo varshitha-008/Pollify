@@ -122,7 +122,7 @@ const LoginForm = () => {
          Signup
        </Text> </p>
        <p> <Text color={"blue"} as={Link} to="/forgotpassword" size="md"  >
-         ForgotPassword
+         ForgotPassword?
        </Text> </p>
     </Box>
   );
