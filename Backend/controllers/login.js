@@ -14,6 +14,7 @@ const generateRefreshToken = (id) => {
 };
 
 export const register = async (req, res) => {
+    console.log("hi am register")
     try {
         const { name, email, password } = req.body;
         console.log(req.body);
