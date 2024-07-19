@@ -5,6 +5,7 @@ import loginrouter from './routes/Login.js';
 import connectDB from './configs/db.js';
 import bodyParser from 'body-parser';
 import Otprouter from './routes/otprouter.js';
+import { createpoll } from './routes/pollRoutes.js';
 
 const app = express();
 app.use(cors());
@@ -20,8 +21,9 @@ app.use(bodyParser.json());
 app.use('/api', Otprouter);
 
 app.use('/api',loginrouter)
+app.use('/api',createpoll)
 app.use('/', (req, res) => {
-    res.send("this is home route");
+    res.send("this is home route for polling");
 
 });
 
