@@ -92,11 +92,14 @@ const PollCreation = () => {
       }
     }
   };
+  const handletitle=(e)=>{
+    setTitle(e.target.value);
+  }
   
   return (
     <Box w="600px" mx="auto" p={4} borderWidth={1} borderRadius="lg" boxShadow="lg">
       <Box>
-        <Input value={title} onChange={(e)=>setTitle(e.value)} placeholder='Enter Your Poll Title'></Input>
+        <Input value={title} onChange={(e)=>handletitle(e)} placeholder='Enter Your Poll Title'></Input>
       </Box>
       <form onSubmit={handleSubmit}>
         <VStack spacing={4}>
