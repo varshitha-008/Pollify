@@ -3,18 +3,15 @@ import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
-// Option Schema
 const optionSchema = new Schema({
   text: { type: String, required: true },
 });
 
-// Question Schema
 const questionSchema = new Schema({
   question: { type: String, required: true },
   options: { type: [optionSchema], required: true },
 });
 
-// Poll Schema
 const pollSchema = new Schema({
   title: { type: String, required: true },
   createdBy: { type: Schema.Types.ObjectId, ref: 'Customer', required: true },

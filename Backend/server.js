@@ -12,12 +12,7 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
 
-// app.use((req, res, next) => {
-//     logger.info(`${req.method} ${req.url}`);
-//     next();
-// });
 
-// app.post('/sendemail', emailSender);
 app.use('/api', pollrouter);
 app.use('/api', Otprouter);
 
@@ -30,15 +25,6 @@ app.use('/', (req, res) => {
 const PORT = process.env.PORT || 3200;
 app.listen(PORT, async () => {
     try {
-        // sequelize.sync()
-        //     .then(() => {
-        //         console.log('Database & tables created!');
-        //     })
-        //     .catch(error => {
-        //         console.error('Unable to sync database:', error);
-        //     });
-
-        // console.log('sql connected succesfully');
         connectDB()
         console.log('mongo connected');
         console.log(`sever is runing at ${PORT}`);
