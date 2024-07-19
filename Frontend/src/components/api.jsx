@@ -13,6 +13,9 @@ import axios from 'axios';
 
 const api = axios.create({
   baseURL: 'http://localhost:2300/api', // Adjust this based on your backend URL
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 // Interceptor to add the access token to every request

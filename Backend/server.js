@@ -5,6 +5,7 @@ import loginrouter from './routes/Login.js';
 import connectDB from './configs/db.js';
 import bodyParser from 'body-parser';
 import Otprouter from './routes/otprouter.js';
+import pollrouter from './routes/pollRouter.js';
 
 const app = express();
 app.use(cors());
@@ -17,6 +18,7 @@ app.use(bodyParser.json());
 // });
 
 // app.post('/sendemail', emailSender);
+app.use('/api', pollrouter);
 app.use('/api', Otprouter);
 
 app.use('/api',loginrouter)
