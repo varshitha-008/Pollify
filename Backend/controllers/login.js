@@ -66,8 +66,8 @@ export const login = async (req, res) => {
             res.status(400).send('User does not exist, try to register');
         }
     } catch (err) {
-        console.error(err);
-        res.status(500).send("Internal server error");
+        // console.error(err);
+        res.status(500).send("server error",err);
     }
 };
 

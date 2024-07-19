@@ -12,7 +12,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:2300/api', // Adjust this based on your backend URL
+  baseURL: 'https://pollify-yc1z.onrender.com/api', // Adjust this based on your backend URL
   headers: {
     'Content-Type': 'application/json',
   },

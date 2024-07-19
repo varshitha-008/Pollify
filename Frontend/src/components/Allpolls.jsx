@@ -16,7 +16,7 @@ const UserPolls = () => {
           },
         });
         setPolls(response.data);
-        console.log(response);
+        console.log(response.data);
       } catch (error) {
         console.error('Error fetching user polls:', error);
       }

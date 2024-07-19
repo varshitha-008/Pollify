@@ -10,6 +10,8 @@ import AttendPoll from './components/MCQpollAttend';
 import UserPolls from './components/Allpolls';
 import PollDetails from './components/MCQpollAttend';
 import PollResponses from './components/pollchart';
+import RatingPoll from './components/dragingpoll';
+import CreatePollDrag from './components/dragpollcreation';
 // import PollAttendance from './components/MCQpollAttend';
 
 const App = () => (
@@ -18,6 +20,8 @@ const App = () => (
     {/* <AttendPoll/> */}
     {/* <UserPolls/> */}
     <Routes>
+      {/* <Route path='/' element={<CreatePollDrag/>}/> */}
+      {/* <Route path='/' element={<RatingPoll/>}/> */}
       <Route path='/pollcreation' element={<PollCreation/>}/>
       <Route path="/login" element={<LoginForm />} />
       <Route path="/Signup" element={<RegisterForm />} />

@@ -21,7 +21,10 @@ app.use(bodyParser.json());
 app.use('/api', pollrouter);
 app.use('/api', Otprouter);
 
-app.use('/api',loginrouter)
+app.use('/api',loginrouter);
+
+
+
 app.use('/', (req, res) => {
     res.send("this is home route");
 
