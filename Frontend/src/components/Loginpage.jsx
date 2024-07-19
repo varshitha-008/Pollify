@@ -19,7 +19,7 @@ const LoginForm = () => {
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('refreshToken', refreshToken);
       setError('');
-      window.location.href = '/Polls';
+      window.location.href = '/polls';
     } catch (err) {
       setError('Login failed. Please check your credentials.');
       console.error(err);
