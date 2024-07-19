@@ -10,6 +10,7 @@ const ChangePassword = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem('resetToken');
+      console.log("token",token);
       const response = await axios.post('/change-password', { token, newPassword });
       toast({
         title: 'Success',
@@ -18,8 +19,9 @@ const ChangePassword = () => {
         duration: 5000,
         isClosable: true,
       });
-      // Optionally, redirect to login page or home page
-      window.location.href = '/login';
+      setTimeout(() => {
+        window.location.href = '/login';
+      }, 1000);
     } catch (error) {
       toast({
         title: 'Error',

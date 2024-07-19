@@ -6,7 +6,7 @@ import Customer from '../models/Loginmodel.js';
 // import Customer from '../models/Customer.js';
 
 const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '1h' });
+    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '5h' });
 };
 
 const generateRefreshToken = (id) => {
