@@ -14,7 +14,7 @@ const AdminPage = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get('/api/admin/users');
+      const response = await axios.get('http://localhost:2300/api/allusers');
       setUsers(response.data);
     } catch (error) {
       console.error('Error fetching users:', error);
@@ -23,7 +23,7 @@ const AdminPage = () => {
 
   const fetchUserStats = async () => {
     try {
-      const response = await axios.get('/api/admin/user-stats');
+      const response = await axios.get('/api/admin/user-statshttp://localhost:2300/api/allusers');
       setUserStats(response.data);
     } catch (error) {
       console.error('Error fetching user statistics:', error);
@@ -32,7 +32,7 @@ const AdminPage = () => {
 
   const handleDeleteUser = async (userId) => {
     try {
-      await axios.delete(`/api/admin/users/${userId}`);
+      await axios.delete(`http://localhost:2300/api/allusers${userId}`);
       setUsers(users.filter(user => user._id !== userId));
     } catch (error) {
       console.error('Error deleting user:', error);
