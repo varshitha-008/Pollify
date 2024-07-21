@@ -101,3 +101,37 @@ export const logout = async (req, res) => {
         res.status(400).json({ message: 'User logout failed', error });
     }
 };
+
+export const userStats = async (req, res) => {
+    try {
+      // Log to check if documents have the createdAt field
+      const users = await Customer.find({}, { createdAt: 1 });
+      console.log("Users with createdAt field:", users);
+  
+      const stats = await Customer.aggregate([
+        {
+          $group: {
+            _id: { $month: '$createdAt' },
+            count: { $sum: 1 },
+          },
+        },
+        {
+          $project: {
+            month: 'january',
+            count: 1,
+          },
+        },
+        {
+          $sort: { month: 1 },
+        },
+      ]);
+  
+
+      console.log("User stats aggregation result:", stats);
+  
+      res.json(stats);
+    } catch (error) {
+      console.error("Error fetching user statistics:", error);
+      res.status(500).json({ error: 'Error fetching user statistics' });
+    }
+  };

@@ -1,15 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import { Bar } from 'react-chartjs-2';
-import './AdminPage.css';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import "../Admin.css"
 
-const AdminPage = () => {
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
+
+export const AdminPage = () => {
   const [users, setUsers] = useState([]);
   const [userStats, setUserStats] = useState([]);
+  const [view, setView] = useState('table');
+  const chartRef = useRef(null);
 
   useEffect(() => {
     fetchUsers();
     fetchUserStats();
+  }, []);
+
+  useEffect(() => {
+    return () => {
+      if (chartRef.current) {
+        chartRef.current.destroy();
+      }
+    };
   }, []);
 
   const fetchUsers = async () => {
@@ -23,7 +51,7 @@ const AdminPage = () => {
 
   const fetchUserStats = async () => {
     try {
-      const response = await axios.get('/api/admin/user-statshttp://localhost:2300/api/allusers');
+      const response = await axios.get('http://localhost:2300/api/user-stats');
       setUserStats(response.data);
     } catch (error) {
       console.error('Error fetching user statistics:', error);
@@ -53,40 +81,46 @@ const AdminPage = () => {
   };
 
   return (
-    <div className="admin-container">
+<div className="admin-container">
       <header className="admin-header">
         <h1>Admin Dashboard</h1>
       </header>
       <main>
         <h2>Manage Users</h2>
-        <div className="chart-container">
-          <Bar data={chartData} />
-        </div>
-        <table className="admin-table">
-          <thead>
-            <tr>
-              <th>Username</th>
-              <th>Email</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map(user => (
-              <tr key={user._id}>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-                <td>
-                  <button className="delete-button" onClick={() => handleDeleteUser(user._id)}>
-                    Delete
-                  </button>
-                </td>
+        <button className="toggle-button" onClick={() => setView(view === 'table' ? 'chart' : 'table')}>
+          {view === 'table' ? 'View Chart' : 'View Table'}
+        </button>
+        {view === 'table' ? (
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Actions</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {users.map(user => (
+                <tr key={user._id}>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    <button className="delete-button" onClick={() => handleDeleteUser(user._id)}>
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <div className="chart-container">
+            <Bar data={chartData} ref={chartRef} />
+          </div>
+        )}
       </main>
     </div>
   );
 };
 
-export default AdminPage;
+

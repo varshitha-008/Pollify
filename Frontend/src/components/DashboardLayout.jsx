@@ -1,7 +1,7 @@
 // src/components/DashboardLayout.jsx
 import { Box, Flex ,Text} from '@chakra-ui/react';
 import { Outlet } from 'react-router-dom';
-import Sidebar from './Sidebar';
+// import Sidebar from './Sidebar';
 
 const DashboardLayout = () => (
   <Flex height="100vh">

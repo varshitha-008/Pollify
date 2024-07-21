@@ -1,74 +1,107 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-  }
-  .admin-container {
+/* AdminPage.css */
+
+.admin-container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 40px auto;
     padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f3f4f6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
   }
+  
   .admin-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px 0;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
   
   .admin-header h1 {
     margin: 0;
+    font-size: 3em;
+    color: #2c3e50;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
   }
   
-  /* Main content styling */
   main {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
   }
-
+  
+  .toggle-button {
+    margin-bottom: 20px;
+    padding: 12px 25px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #3498db;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+  }
+  
+  .toggle-button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+  }
+  
   .admin-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin: 30px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
   }
   
-  .admin-table th, .admin-table td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
+  .admin-table th,
+  .admin-table td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e1e4e8;
     text-align: left;
+    font-family: 'Roboto', sans-serif;
   }
   
   .admin-table th {
-    background-color: #f2f2f2;
+    background-color: #f9fafb;
+    font-weight: 700;
+    color: #2c3e50;
   }
   
-  .admin-table tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+  .admin-table tr:nth-child(even) {
+    background-color: #f4f6f8;
   }
   
-  .admin-table tbody tr:hover {
-    background-color: #f1f1f1;
+  .admin-table tr:hover {
+    background-color: #eef2f5;
   }
   
-
   .delete-button {
+    padding: 10px 20px;
     color: #fff;
-    background-color: #d9534f;
+    background-color: #e74c3c;
     border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
   }
   
   .delete-button:hover {
-    background-color: #c9302c;
+    background-color: #c0392b;
+    transform: scale(1.05);
   }
   
   .chart-container {
-    margin-bottom: 20px;
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
