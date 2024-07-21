@@ -10,8 +10,8 @@ const responseSchema = new Schema({
     {
       questionId: { type: Schema.Types.ObjectId, ref: 'Question', required: true },
       questionText: { type: String, required: true },
-      answerId: { type: Schema.Types.ObjectId, ref: 'Option', required: true },
-      answerText: { type: String, required: true },
+      answerId: [{ type: Schema.Types.ObjectId, ref: 'Option', required: true }],
+      answerText: [{ type: String, required: true }],
     },
   ],
   createdAt: { type: Date, default: Date.now },

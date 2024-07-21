@@ -9,7 +9,7 @@ const pollrouter=Router();
 pollrouter.post('/polls',protect,createPoll);
 pollrouter.post('/polls/:pollId/responses',protect,Mcqresponce);
 
-pollrouter.get('/polls/:pollId/responses',allpollres);
+pollrouter.get('/polls/:pollId/responses',protect,allpollres);
 pollrouter.get('/polls',protect,allpolls);
 pollrouter.get('/Polls/:pollId',onepoll);
 export default pollrouter;

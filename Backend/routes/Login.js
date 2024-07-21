@@ -1,5 +1,5 @@
 import express from 'express';
-import { allUsers, login, logout, register, token } from '../controllers/login.js';
+import { allUsers,  login,  logout, register, token } from '../controllers/login.js';
 const loginrouter = express.Router();
 
 loginrouter.post('/register', register);
