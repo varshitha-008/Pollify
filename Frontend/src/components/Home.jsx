@@ -6,15 +6,17 @@ const Home = () => {
   return (
     //feature 
     <Box p={4} >
-      <Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={6}>
+      <Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={6} >
         {features.map((feature, index) => (
           <GridItem
             key={index}
             p={4}
+           
             borderRadius="lg"
             boxShadow="md"
             bg="white"
-            _hover={{ boxShadow: 'xl', transform: 'scale(1.05)', transition: 'all 0.3s ease-in-out' }}
+            backgroundColor='#faf7f0'
+            _hover={{ boxShadow: 'xl', transform: 'scale(1.05)', transition: 'all 0.3s ease-in-out' } }
           >
             <Link as={RouterLink} to={feature.link}>
               <Image src={feature.image} alt={feature.title} borderRadius="md" />
@@ -22,7 +24,7 @@ const Home = () => {
               <Text fontSize="lg" fontWeight="bold" mt={4}>
                 {feature.title}
               </Text>
-              <Text mt={2} fontSize="sm" color="gray.600">
+              <Text mt={2}  fontSize="sm" color="gray.600">
                 {feature.description}
               </Text>
             </Link>
