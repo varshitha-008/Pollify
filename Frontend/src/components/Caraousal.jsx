@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Box, Text, Image, Flex, VStack, IconButton, useBreakpointValue, useMediaQuery } from '@chakra-ui/react';
+import { Box, Text, Image, Flex, VStack, IconButton, useBreakpointValue, useMediaQuery,Heading } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 const CardCarousel = () => {
@@ -111,7 +111,14 @@ const CardCarousel = () => {
   }, [currentIndex, cards.length]);
 
   return (
-    <Flex justify="center" align="center" w="100%" p={2} position="relative" overflow="hidden">
+    <Box my='50px'>
+    <Heading textAlign='center' color='teal' >
+
+        Our Customers Reviews
+      </Heading>
+
+    <Flex justify="center" align="center" w="100%" p={2} position="relative" overflow="hidden" >
+      
       <IconButton
         icon={<ChevronLeftIcon />}
         onClick={prevCard}
@@ -121,6 +128,7 @@ const CardCarousel = () => {
         aria-label="Previous card"
         size={isMobile ? 'sm' : 'md'}
       />
+
       <Box 
         ref={containerRef} 
         w={`calc(${extendedCards.length} * (${cardWidth} + ${cardSpacing}px))`} 
@@ -179,6 +187,7 @@ const CardCarousel = () => {
         size={isMobile ? 'sm' : 'md'}
       />
     </Flex>
+    </Box>
   );
 };
 

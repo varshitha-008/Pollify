@@ -30,6 +30,8 @@ const Navbar = () => (
       <Button as={Link} to="/get-true-false-poll" colorScheme="teal" variant="solid" size="md" borderRadius="md" _hover={{ bg: 'teal.600' }} >
        see true/false poll
       </Button>
+
+      {/* <Button as={Link} to="/Analytics" colorScheme="teal" variant="solid" size="md" borderRadius="md" _hover={{ bg: 'teal.600' }}  ></Button> */}
     </HStack>
   </Box>
 );

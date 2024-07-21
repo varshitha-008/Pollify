@@ -1,10 +1,13 @@
 import React from 'react';
 import { Box, Grid, GridItem, Text, Image, Link } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
+import CardCarousel from './Caraousal';
+import Footer from './Footer';
 
 const Home = () => {
   return (
     //feature 
+    <>
     <Box p={4} >
       <Grid templateColumns="repeat(auto-fit, minmax(300px, 1fr))" gap={6} >
         {features.map((feature, index) => (
@@ -33,7 +36,13 @@ const Home = () => {
       </Grid>
     </Box>
 
-    
+
+<CardCarousel/>
+
+<Footer></Footer>
+     
+
+</>
   );
 };
 
