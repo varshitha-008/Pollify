@@ -1,15 +1,9 @@
-import { v4 as uuidv4 } from 'uuid';
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
-const optionSchema = new Schema({
-  text: { type: String, required: true },
-});
-
 const questionSchema = new Schema({
   question: { type: String, required: true },
-  options: { type: [optionSchema], required: true },
 });
 
 const pollSchema = new Schema({
@@ -20,6 +14,6 @@ const pollSchema = new Schema({
   updatedAt: { type: Date, default: Date.now },
 });
 
-const Poll = mongoose.model('Poll', pollSchema);
+const TrueFalsePoll = mongoose.model('TrueFalsePoll', pollSchema);
 
-export default Poll;
+export default TrueFalsePoll;
