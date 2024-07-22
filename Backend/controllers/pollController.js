@@ -1,5 +1,7 @@
+// import Poll from '../models/pollModel.js';
 import Poll from '../models/pollModel.js';
 import ScalePoll from '../models/Scallpoll.js';
+import TrueFalsePoll from '../models/TrueFalsePoll.js';
 
 export const createPoll = async (req, res) => {
   const { type, title, questions } = req.body;
@@ -58,6 +60,7 @@ export const allpolls = async (req, res) => {
     // Fetching polls
     const polls = await Poll.find(query).populate('questions.options'); 
     const allPolls = await ScalePoll.find(query);
+    const binarypoll=await TrueFalsePoll.find(query);
     // const po=await Poll.find();
     // const all=await ScalePoll.find();
     // console.log("poll",po);
@@ -65,7 +68,7 @@ export const allpolls = async (req, res) => {
     console.log('Polls:', polls);
     console.log('Scale Polls:', allPolls);
 
-    res.json({ polls, scalepolls: allPolls });
+    res.json({ polls, scalepolls: allPolls,binarypoll:binarypoll });
   } catch (error) {
     console.error('Error fetching user polls:', error);
     res.status(500).json({ message: 'Server error', error: error.message });

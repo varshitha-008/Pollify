@@ -11,7 +11,7 @@ import axios from '../login-signup/api';
 import { useParams } from 'react-router-dom';
 import { Box, Heading, VStack, Select, Text } from '@chakra-ui/react';
 
-const PollResponses = () => {
+ const PollMcqres = () => {
   const { pollId } = useParams();
   const [chartData, setChartData] = useState([]);
   const [chartTypes, setChartTypes] = useState({});
@@ -244,4 +244,5 @@ const PollResponses = () => {
   );
 };
 
-export default PollResponses;
+
+export default PollMcqres;

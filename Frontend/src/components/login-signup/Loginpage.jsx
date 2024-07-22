@@ -21,6 +21,8 @@ const LoginForm = () => {
         Cookies.set('accessToken', accessToken, { secure: true, sameSite: 'Strict' });
         Cookies.set('refreshToken', refreshToken, { secure: true, sameSite: 'Strict' });
         localStorage.setItem('accessToken', accessToken);
+        const user=email;
+        localStorage.setItem('user',user);
 
         toast({
           title: 'Login successful.',

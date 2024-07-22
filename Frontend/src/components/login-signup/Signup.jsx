@@ -86,7 +86,7 @@ const RegisterForm = () => {
         </VStack>
       </form>
       <br />
-      <p>Already have an account? <Text color={"blue"} as={Link} to="/" size="md">Login</Text></p>
+      <p>Already have an account? <Text color={"blue"} as={Link} to="/login" size="md">Login</Text></p>
     </Box>
   );
 };

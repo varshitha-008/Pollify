@@ -48,7 +48,7 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
     try {
         const { email, password } = req.body;
-        console.log(password);
+        console.log(password,email);
 
         if (!email || !password) {
             return res.status(400).send("Email and password required");
@@ -79,7 +79,7 @@ export const login = async (req, res) => {
                         secure: process.env.NODE_ENV === 'production',
                         sameSite: 'Strict'
                     });
-
+                    console.log("loginsuccesss");
                     res.status(200).json({ message: 'Login successful', accessToken, refreshToken });
                 } else {
                     console.log("incorrect password");
@@ -99,7 +99,7 @@ export const login = async (req, res) => {
     }
 };
 export const logout = async (req, res) => {
-    const { refreshToken } = req.cookies;
+    const { refreshToken } = req.body;
     try {
         const user = await Customer.findOne({ refreshToken });
         if (user) {
@@ -136,6 +136,7 @@ export const token = async (req, res) => {
 };
 
 export const allUsers = async (req, res) => {
+
     try {
         const users = await Customer.find();
         res.send(users);
@@ -144,3 +145,95 @@ export const allUsers = async (req, res) => {
         res.status(500).send("There is an error in fetching users");
     }
 };
+
+
+
+export const getCustomerById = async (req, res) => {
+    const customer = await Customer.findById(req.params.id);
+    
+    if (customer) {
+      res.json(customer);
+    } else {
+      res.status(404).json({ message: 'Customer not found' });
+    }
+  };
+  
+
+// update one user
+
+// export const updateCustomer = async (req, res) => {
+//     const customer = await Customer.findById(req.params.id);
+  
+//     if (customer) {
+//       customer.name = req.body.name || customer.name;
+//       customer.email = req.body.email || customer.email;
+//       customer.role = req.body.role || customer.role;
+  
+//       if (req.body.password) {
+//         customer.password = req.body.password;
+//       }
+  
+//       const updatedCustomer = await customer.save();
+//       res.json({
+//         _id: updatedCustomer._id,
+//         name: updatedCustomer.name,
+//         email: updatedCustomer.email,
+//         role: updatedCustomer.role,
+//       });
+//     } else {
+//       res.status(404).json({ message: 'Customer not found' });
+//     }
+//   };
+
+// Controller
+export const updateCustomer = async (req, res) => {
+    console.log('Updating customer with ID:', req.params.id);  // Log req.params.id to see if it's undefined
+    try {
+      const customer = await Customer.findById(req.params.id);
+  
+      if (customer) {
+        customer.name = req.body.name || customer.name;
+        customer.email = req.body.email || customer.email;
+        customer.role = req.body.role || customer.role;
+  
+        if (req.body.password) {
+          customer.password = req.body.password;
+        }
+  
+        const updatedCustomer = await customer.save();
+        res.json({
+          _id: updatedCustomer._id,
+          name: updatedCustomer.name,
+          email: updatedCustomer.email,
+          role: updatedCustomer.role,
+        });
+      } else {
+        res.status(404).json({ message: 'Customer not found' });
+      }
+    } catch (error) {
+      console.error('Error updating customer:', error);  // Log error for more details
+      res.status(500).json({ message: 'Server error', error: error.message });
+    }
+  };
+  
+  // Router
+//   loginrouter.patch('/user/:id', updateCustomer);
+  
+  
+
+  //delete users 
+
+  export const deleteCustomer = async (req, res) => {
+    try {
+      const customer = await Customer.findById(req.params.id);
+  
+      if (customer) {
+        await Customer.deleteOne({ _id: req.params.id });
+        res.json({ message: 'Customer deleted successfully' });
+      } else {
+        res.status(404).json({ message: 'Customer not found' });
+      }
+    } catch (error) {
+      res.status(500).json({ message: 'Server error', error });
+    }
+  };

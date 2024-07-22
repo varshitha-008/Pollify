@@ -89,8 +89,8 @@ const PollCreation = () => {
       setQuestions([{ question: '', options: [{ text: '' }], type: 'radio' }]);
       setTitle("");
       toast({
-        title: 'Login successful.',
-        description: "You have been successfully logged in.",
+        title: 'poll created',
+        description: "You have been successfully created in.",
         status: 'success',
         duration: 2000,
         isClosable: true,

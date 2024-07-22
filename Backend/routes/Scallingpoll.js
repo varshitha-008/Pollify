@@ -1,6 +1,7 @@
 import {Router} from 'express';
-import protect from '../middlewares/auth.js';
+// import protect from '../middlewares/auth.js';
 import { createcreatescalepoll, getScalePollResults, onescalepoll, pollscaleresponce } from '../controllers/Scalepoll.js';
+import { protect } from '../middlewares/auth.js';
 
 const scalepoll=Router();
 

@@ -2,8 +2,6 @@ import express from 'express';
 import Poll from '../models/pollModel.js';
 import PollResponse from '../models/MCQresponce.js';
 
-// const router = express.Router();
-
 export const allpollres= async (req, res) => {
     const {pollId}=req.params;
     try {

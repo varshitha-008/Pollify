@@ -1,8 +1,8 @@
 import {Router} from 'express';
-// import { createpoll} from '../controllers/pollController.js';
-import protect from '../middlewares/auth.js';
+// import protect from '../middlewares/auth.js';
 import { allpolls, createPoll, onepoll } from '../controllers/pollController.js';
 import { allpollres, Mcqresponce } from '../controllers/MCQresponce.js';
+import { protect } from '../middlewares/auth.js';
 
 const pollrouter=Router();
 

@@ -12,7 +12,64 @@ import session from 'express-session';
 import MongoStore from 'connect-mongo';
 
 
+import router from './routes/trueFalsePollRoutes.js';
+import trueOrFalseRouter from './routes/trueFalsePollRoutes.js';
+
+
+// Set up for socket
+
+import http from 'http';
+
+import { Server } from 'socket.io';
+
+
+
+//
+// app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+
+
+
+// app.use(express.json());
+// app.use(bodyParser.json());
+
+
+
+
 const app = express();
+
+const server = http.createServer(app);
+const io = new Server(server);
+
+
+io.on('connection', (socket) => {
+    console.log('New client connected');
+  
+    socket.on('disconnect', () => {
+      console.log('Client disconnected');
+    });
+  });
+
+  app.use((req, res, next) => {
+    req.io = io;
+    next();
+  });
+
+  // Export io for use in the controller
+export { io };
+// app.use(cors());
+
+app.use(cors({
+  origin: 'http://localhost:5173', // URL of your frontend application
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true // Enable cookies
+}));
+app.use(express.json());
+app.use(bodyParser.json());
+app.use('/api', pollRouter);
+app.use('/api', otpRouter);
+app.use('/api', loginRouter);
+app.use('/api', scalePollRouter);
+// const app = express();
 app.use(cookieParser());
 app.use(
     session({
@@ -27,34 +84,24 @@ app.use(
         },
     })
 );
-// app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
 
 
-app.use(cors({
-  origin: 'http://localhost:5173', // URL of your frontend application
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true // Enable cookies
-}));
 
-app.use(express.json());
-app.use(bodyParser.json());
-
-app.use('/api', pollRouter);
-app.use('/api', otpRouter);
-app.use('/api', loginRouter);
-app.use('/api', scalePollRouter);
+app.use('/api',trueOrFalseRouter)
 
 app.use('/', (req, res) => {
     res.send("this is home route");
+    
+
 });
 
 const PORT = process.env.PORT || 3200;
-app.listen(PORT, async () => {
+server.listen(PORT, async () => {
     try {
-        connectDB();
+        connectDB()
         console.log('mongo connected');
-        console.log(`server is running at ${PORT}`);
+        console.log(`sever is runing at ${PORT}`);
     } catch (err) {
         console.log(err);
     }
-});
+})
