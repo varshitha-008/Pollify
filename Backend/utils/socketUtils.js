@@ -7,7 +7,7 @@ let io;
 export const initSocket = (server) => {
   io = new Server(server, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: "https://669f6983ccc359e473be1211--verdant-naiad-e9928b.netlify.app/",
       methods: ["GET", "POST"],
     },
   });
