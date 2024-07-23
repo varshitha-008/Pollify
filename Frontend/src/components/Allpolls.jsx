@@ -308,7 +308,7 @@ const UserPollsResult = () => {
                 ))}
             </Grid>
             </Box>
-            <Box mt={8} w="100%" w="100%" mx="auto" p={4}>
+            <Box mt={8}  w="100%" mx="auto" p={4}>
 
                 <Heading fontSize={"24px"}>Scalling Polls</Heading>
                 <Grid
