@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, Legend, BarChart, Bar, XAxis, YAxis, LineChart, Line } from 'recharts';
-import axios from '../api';
+import axios from '../login-signup/api';
 import { useParams } from 'react-router-dom';
 import { Box, Heading, Select, SimpleGrid, VStack, Text, Icon } from '@chakra-ui/react';
 import { FaChartPie, FaChartBar, FaChartLine } from 'react-icons/fa';

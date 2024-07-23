@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Box, Button, Input, VStack, Textarea, Text, IconButton, HStack,useToast,Heading } from '@chakra-ui/react';
 import { AddIcon, DeleteIcon } from '@chakra-ui/icons';
-import axios from '../api';
+import axios from '../login-signup/api';
 
 const CreateTrueFalsePoll = () => {
   const [title, setTitle] = useState('');
   const [questions, setQuestions] = useState([{ question: '' }]);
   const [error, setError] = useState('');
+  const toast =useToast();
   const token = localStorage.getItem('accessToken');
 
   const handleQuestionChange = (index, value) => {
@@ -23,75 +24,6 @@ const CreateTrueFalsePoll = () => {
     const newQuestions = questions.filter((_, qIndex) => qIndex !== index);
     setQuestions(newQuestions);
   };
-
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setError('');
-
-  //   if (!title || questions.some(q => !q.question)) {
-  //     setError('Please provide all required fields.');
-  //     return;
-  //   }
-
-  //   try {
-  //     const response = await axios.post(
-  //       '/true-false-poll',
-  //       { title, questions },
-  //       {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       }
-  //     );
-  //     toast({
-  //             title: 'Poll created.',
-  //             description: `Poll "${response.data.title}" was successfully created.`,
-  //             status: 'success',
-  //             duration: 5000,
-  //             isClosable: true,
-  //           });
-  //     console.log('Poll created:', response.data);
-  //     // Reset form after successful creation
-  //     setTitle('');
-  //     setQuestions([{ question: '' }]);
-  //   } catch (error) {
-  //     toast({
-  //             title: 'Error.',
-  //             description: 'There was an error creating the poll.',
-  //             status: 'error',
-  //             duration: 5000,
-  //             isClosable: true,
-  //           });
-  //     console.error('Error creating poll:', error);
-  //     setError('Error creating poll. Please try again.');
-  //   }
-  // };
-
-
-  // const handleSubmit = async () => {
-  //   try {
-  //     const response = await axios.post('/api/true-false-poll', { title, questions });
-  //     toast({
-  //       title: 'Poll created.',
-  //       description: `Poll "${response.data.title}" was successfully created.`,
-  //       status: 'success',
-  //       duration: 5000,
-  //       isClosable: true,
-  //     });
-  //     setTitle('');
-  //     setQuestions([{ question: '' }]);
-  //   } catch (error) {
-  //     console.error('Error creating poll:', error);
-  //     toast({
-  //       title: 'Error.',
-  //       description: 'There was an error creating the poll.',
-  //       status: 'error',
-  //       duration: 5000,
-  //       isClosable: true,
-  //     });
-  //   }
-  // };
 
 
   const handleSubmit = async (e) => {

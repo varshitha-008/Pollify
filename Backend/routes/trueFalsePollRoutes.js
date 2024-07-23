@@ -1,6 +1,12 @@
 import express from 'express';
+<<<<<<< HEAD
 import protect from '../middlewares/auth.js';
 import { createTrueFalsePoll, getAllTrueFalsePolls, getTrueFalsePollById, getTrueFalsePollResults, submitTrueFalseResponse } from '../controllers/TrueFalsePollController.js';
+=======
+// import protect from '../middlewares/auth.js';
+import { createTrueFalsePoll, getAllTrueFalsePolls, getTrueFalsePollById, getTrueFalsePollResults, submitTrueFalseResponse } from '../controllers/TrueFalsePollController.js';
+import { protect } from '../middlewares/auth.js';
+>>>>>>> finalcode
 
 const trueOrFalseRouter = express.Router();
 

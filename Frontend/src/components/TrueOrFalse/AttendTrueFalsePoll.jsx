@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { Box, Heading, Text, VStack, Button, Radio, RadioGroup } from '@chakra-ui/react';
 
 import { FaShareSquare } from 'react-icons/fa';
-import axios from '../api';
+import axios from '../login-signup/api';
 import ShareModal from './ShareModal';
 const AttendTrueFalsePoll = () => {
   const { pollId } = useParams();

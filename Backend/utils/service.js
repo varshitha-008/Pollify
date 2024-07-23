@@ -106,3 +106,49 @@ export const changePassword = async (req, res) => {
     return res.status(500).send('Failed to change password');
   }
 };
+
+
+
+// const express = require('express');
+// const bodyParser = require('body-parser');
+// const cors = require('cors');
+// const nodemailer = require('nodemailer');
+// require('dotenv').config();
+
+// const app = express();
+// const port = 3000;
+
+// app.use(cors());
+// app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.json());
+
+
+
+export const tikect= (req, res) => {
+    const { subject, title, message } = req.body;
+
+
+    const mailOptions = {
+        from: process.env.EMAIL_USER, // Sender's email from environment variables
+        to: "varshithab.008@gmail.com", // Receiver's support email
+        subject: `Ticket: ${subject}`, // Updated to use the subject field
+        text: `Title: ${title}\nMessage: ${message}` // Updated to include title and message
+    };
+    const transporter = nodemailer.createTransport({
+      service: 'gmail', 
+      auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.emailpassword
+      }
+  });
+  
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.log(error);
+            res.status(500).send('Error sending email.');
+        } else {
+            console.log('Email sent: ' + info.response);
+            res.status(200).send('Ticket submitted successfully.');
+        }
+    });
+}

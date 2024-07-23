@@ -53,7 +53,7 @@ const Footer = () => {
       );
     }
     return (
-      <Stack align="flex-start">
+      <Stack align="flex-start" >
         <Text fontWeight="bold" fontSize="lg" mb={2}>{title}</Text>
         {children}
       </Stack>
@@ -114,7 +114,7 @@ const Footer = () => {
   );
 
   return (
-    <Box bg="teal.700" color="white" py={10}>
+    <Box bg="teal.700" color="white" py={10} >
       <Container maxW="container.xl">
         {isMobile ? (
           <Accordion allowMultiple>

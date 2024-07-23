@@ -58,6 +58,7 @@ export const submitTrueFalseResponse = async (req, res) => {
 export const getAllTrueFalsePolls = async (req, res) => {
   try {
     const polls = await TrueFalsePoll.find({ createdBy: req.user.id });
+    console.log("huhf",polls);
     res.json(polls);
   } catch (error) {
     console.error('Error fetching user polls:', error);

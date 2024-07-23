@@ -1,3 +1,4 @@
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Box, Text, Image, Flex, VStack, IconButton, useBreakpointValue, useMediaQuery,Heading } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
@@ -36,6 +37,55 @@ const CardCarousel = () => {
       position: "vice president",
       company: "Big Tech",
       avatar: "https://masai-website-images.s3.ap-south-1.amazonaws.com/aman_fbbc8625a4.jpg"
+    },
+    {
+      title: "Effective, user-friendly",
+      content: "Polify makes creating polls and quizzes so easy and engaging. Our team loves the flexibility and the user-friendly interface. It's a game-changer for gathering feedback!",
+      name: "Prateek Shukla",
+      position: "HUMAN RESOURCES MANAGER",
+      company: "EMBASSY SUITES ORLANDO",
+      avatar: "https://masai-website-images.s3.ap-south-1.amazonaws.com/prateek_6232b84d8b.jpeg"
+    },
+    {
+      title: "Highly Recomonded",
+      content: "We've been using Polify for our company quizzes and it's been a huge hit. The platform is intuitive and the analytics are extremely helpful for measuring engagement.",
+      name: "Nrupul Dev",
+      position: "Communication Director",
+      company: "MasaiCon",
+      avatar: "https://masai-website-images.s3.ap-south-1.amazonaws.com/Nrupul_d3fe3b289a.jpg"
+    },
+    {
+      title: "It Works Beautifully",
+      content: "Polify has transformed how we conduct employee surveys. The process is smooth and the results are insightful. Employees appreciate the ease of use and the quick response time.",
+      name: "Yogesh Bhat",
+      position: "Chief Marketing Officer",
+      company: "Vanity Fair",
+      avatar: "https://masai-website-images.s3.ap-south-1.amazonaws.com/Yogesh_52e31f5560.jpg"
+    },
+
+    {
+      title: "Effective, user-friendly",
+      content: "Polify makes creating polls and quizzes so easy and engaging. Our team loves the flexibility and the user-friendly interface. It's a game-changer for gathering feedback!",
+      name: "Prateek Shukla",
+      position: "HUMAN RESOURCES MANAGER",
+      company: "EMBASSY SUITES ORLANDO",
+      avatar: "https://masai-website-images.s3.ap-south-1.amazonaws.com/prateek_6232b84d8b.jpeg"
+    },
+    {
+      title: "Highly Recomonded",
+      content: "We've been using Polify for our company quizzes and it's been a huge hit. The platform is intuitive and the analytics are extremely helpful for measuring engagement.",
+      name: "Nrupul Dev",
+      position: "Communication Director",
+      company: "MasaiCon",
+      avatar: "https://masai-website-images.s3.ap-south-1.amazonaws.com/Nrupul_d3fe3b289a.jpg"
+    },
+    {
+      title: "It Works Beautifully",
+      content: "Polify has transformed how we conduct employee surveys. The process is smooth and the results are insightful. Employees appreciate the ease of use and the quick response time.",
+      name: "Yogesh Bhat",
+      position: "Chief Marketing Officer",
+      company: "Vanity Fair",
+      avatar: "https://masai-website-images.s3.ap-south-1.amazonaws.com/Yogesh_52e31f5560.jpg"
     },
     {
       title: "Effective, user-friendly",
@@ -117,7 +167,7 @@ const CardCarousel = () => {
         Our Customers Reviews
       </Heading>
 
-    <Flex justify="center" align="center" w="100%" p={2} position="relative" overflow="hidden" >
+    <Flex justify="center" align="center" mx='auto' w="1200px" p={2} position="relative" overflow="hidden" >
       
       <IconButton
         icon={<ChevronLeftIcon />}

@@ -1,8 +1,13 @@
+
+
+
 import jwt from 'jsonwebtoken';
 import {} from 'dotenv/config';
 
-const protect = (req, res, next) => {
+export const protect = (req, res, next) => {
+
   let token;
+//   const {token}=req.body;
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     token = req.headers.authorization.split(' ')[1];
     try {
@@ -17,24 +22,30 @@ const protect = (req, res, next) => {
   }
 };
 
+// export default  protect ;
 
 
+export const admin = (req, res, next) => {
+  if (req.user && req.user.role === 'admin') {
+    next();
+  } else {
+    res.status(401).json({ message: 'Not authorized as an admin' });
+  }
+};
 
-export default  protect ;
+// // import jwt from 'jsonwebtoken';
 
-// import jwt from 'jsonwebtoken';
+// // const authenticateToken = (req, res, next) => {
+// //   const authHeader = req.headers['authorization'];
+// //   const token = authHeader && authHeader.split(' ')[1];
 
-// const authenticateToken = (req, res, next) => {
-//   const authHeader = req.headers['authorization'];
-//   const token = authHeader && authHeader.split(' ')[1];
+// //   if (token == null) return res.sendStatus(401); // No token provided
 
-//   if (token == null) return res.sendStatus(401); // No token provided
+// //   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+// //     if (err) return res.sendStatus(403); // Invalid token
+// //     req.user = user;
+// //     next();
+// //   });
+// // };
 
-//   jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
-//     if (err) return res.sendStatus(403); // Invalid token
-//     req.user = user;
-//     next();
-//   });
-// };
-
-// export default authenticateToken;
+// // export default authenticateToken;

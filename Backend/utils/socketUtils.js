@@ -7,7 +7,7 @@ let io;
 export const initSocket = (server) => {
   io = new Server(server, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: "https://pollify-yc1z.onrender.com", 
       methods: ["GET", "POST"],
     },
   });
