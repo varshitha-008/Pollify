@@ -54,7 +54,7 @@
 //             POLLIFY
 //           </Box>
 //         </Box>
-        
+
 //         <HStack spacing="4" flex="1" justify="center" display={{ base: "none", md: "flex" }}>
 //           <Button as={Link} to="/" colorScheme="teal" variant="solid" size="md" borderRadius="md" _hover={{ bg: 'teal.600' }}>
 //             Home
@@ -171,12 +171,12 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import img from '../assets/Pn.png';
-import Sidebar from './Sidebar'; // Adjust the import according to your file structure
+// import Sidebar from './Sidebar'; // Adjust the import according to your file structure
 
 const Navbar = ({ isAuthenticated, onLogout }) => {
   const user = localStorage.getItem('user');
   const { isOpen, onOpen, onClose } = useDisclosure(); // Control drawer visibility
-
+  console.log("is Athenticated",isAuthenticated);
   return (
     <Box
       as="nav"
@@ -223,7 +223,7 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
             variant="solid"
             size="md"
             borderRadius="md"
-            _hover={{ bg: 'teal.600' }}
+            _hover={{ bg: 'teal.600' }} 
           >
             Home
           </Button>
@@ -238,6 +238,16 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
           >
             Contact
           </Button>
+          {/* ( !isAuthenticated &&
+          <Button 
+            as={Link}
+            to="/contact"
+            colorScheme="teal"
+            variant="solid"
+            size="md"
+            borderRadius="md"
+            _hover={{ bg: 'teal.600' }}>DashBoard</Button>
+          ) */}
         </HStack>
 
         {isAuthenticated ? (
@@ -289,7 +299,7 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
       </Flex>
 
       {/* Sidebar for mobile view */}
-      <Sidebar isOpen={isOpen} onClose={onClose} />
+      {/* <Sidebar isOpen={isOpen} onClose={onClose} /> */}
     </Box>
   );
 };

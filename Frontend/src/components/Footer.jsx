@@ -114,7 +114,7 @@ const Footer = () => {
   );
 
   return (
-    <Box bg="teal.700" color="white" py={10} ml="-250px">
+    <Box bg="teal.700" color="white" py={10} >
       <Container maxW="container.xl">
         {isMobile ? (
           <Accordion allowMultiple>

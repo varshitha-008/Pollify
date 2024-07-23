@@ -186,6 +186,10 @@ const Sidebar = ({ isOpen, onClose }) => {
             <Button as={Link} to="/pollsresult" variant="solid" size="md" borderRadius="md" _hover={{ bg: 'teal.200' }}>
               Analytics
             </Button>
+            
+            <Button  variant="solid" size="md" borderRadius="md" _hover={{ bg: 'teal.200' }}>
+                    Tutorial
+                  </Button>
           </VStack>
         </Box>
       ) : (
@@ -230,6 +234,11 @@ const Sidebar = ({ isOpen, onClose }) => {
                   <Button as={Link} to="/pollsresult" variant="solid" size="md" borderRadius="md" _hover={{ bg: 'teal.200' }}>
                     Analytics
                   </Button>
+                  
+                  <Button  variant="solid" size="md" borderRadius="md" _hover={{ bg: 'teal.200' }}>
+                    Tutorial
+                  </Button>
+
                 </VStack>
               </DrawerBody>
             </DrawerContent>
