@@ -13,6 +13,9 @@ Full Stack App :Front-end & Backend
 
 # Deployed App
 
+Front-end:(https://pollify-1.onrender.com/) 
+Backend:(https://pollify-1.onrender.com/)
+
 # Directory Structer
 
 
