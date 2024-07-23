@@ -10,7 +10,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     // Fetch total users
-    axios.get('http://localhost:2300/api/allusers')
+    axios.get('/allusers')
       // .then((response) => response.json())
       .then((data) => setTotalUsers(data.total))
       .catch((error) => console.error('Error fetching total users:', error));
