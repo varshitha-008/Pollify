@@ -59,7 +59,7 @@ export { io };
 // app.use(cors());
 
 app.use(cors({
-  origin: 'https://pollifynem.netlify.app/', // URL of your frontend application
+  origin: 'https://pollify-1.onrender.com', // URL of your frontend application
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true // Enable cookies
 }));
