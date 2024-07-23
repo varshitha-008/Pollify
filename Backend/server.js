@@ -59,7 +59,7 @@ export { io };
 // app.use(cors());
 
 app.use(cors({
-  origin: 'http://localhost:5173', // URL of your frontend application
+  origin: '', // URL of your frontend application
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true // Enable cookies
 }));

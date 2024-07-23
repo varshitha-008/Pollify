@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://pollify-yc1z.onrender.com/api',
+  // baseURL: 'https://pollify-yc1z.onrender.com/api',
+  baseURL:"http://localhost:2300/api/",
   headers: {
     'Content-Type': 'application/json',
   },
@@ -27,7 +28,7 @@ api.interceptors.response.use(
       const refreshToken = localStorage.getItem('refreshToken');
       if (refreshToken) {
         try {
-          const response = await axios.post('http://localhost:2300/api/refresh-token', { refreshToken });
+          const response = await axios.post('https://pollify-yc1z.onrender.com/refresh-token', { refreshToken });
           const { accessToken } = response.data;
           localStorage.setItem('accessToken', accessToken);
           api.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;

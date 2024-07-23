@@ -215,7 +215,7 @@ const App = () => {
                 <Route path='/pollcreation' element={<PollCreation />} />
                 <Route path="/polls" element={<UserPolls />} />
                 <Route path="/pollsresult" element={<UserPollsResult/>}/>
-
+                <Route path='/admin' element={<AdminPanel/>}/>
                 <Route path='/showallcreations' element={<PollButtons/>}/>
                 <Route path='/polldrag' element={<CreatePollDrag/>}/>
                 <Route path="/polls/:pollId" element={<AttendPoll />} />
