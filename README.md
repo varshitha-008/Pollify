@@ -168,9 +168,9 @@ Copy code
   "userId": "60f7e4e2f1b8b9e7f5b7fabc"
 }
 ```
-Login
-Endpoint: POST /api/login
-Description: Logs in a user and returns an authentication token.
+Login<br/>
+Endpoint: POST /api/login<br/>
+Description: Logs in a user and returns an authentication token.<br/>
 Request:
 ```json
 Copy code
@@ -188,9 +188,9 @@ Copy code
   "refreshToken": "refresh_token_here"
 }
 ```
-Get All Users
-Endpoint: GET /api/allusers
-Description: Retrieves all registered users.
+Get All Users<br/>
+Endpoint: GET /api/allusers<br/>
+Description: Retrieves all registered users.<br/>
 Response:
 ```json
 Copy code
@@ -202,9 +202,9 @@ Copy code
   ...
 ]
 ```
-Get User by ID
-Endpoint: GET /api/user/:id
-Description: Retrieves a user by their ID.
+Get User by ID<br/>
+Endpoint: GET /api/user/:id<br/>
+Description: Retrieves a user by their ID.<br/>
 Response:
 ```json
 Copy code
@@ -213,9 +213,9 @@ Copy code
   "username": "john_doe"
 }
 ```
-Update User
-Endpoint: PATCH /api/user/:id
-Description: Updates user details.
+Update User<br/>
+Endpoint: PATCH /api/user/:id<br/>
+Description: Updates user details.<br/>
 Request:
 ```json
 Copy code
@@ -230,9 +230,9 @@ Copy code
   "message": "User updated successfully"
 }
 ```
-Delete User
-Endpoint: DELETE /api/user/:id
-Description: Deletes a user by their ID.
+Delete User<br/>
+Endpoint: DELETE /api/user/:id<br/>
+Description: Deletes a user by their ID.<br/>
 Response:
 ```json
 Copy code
@@ -240,9 +240,9 @@ Copy code
   "message": "User deleted successfully"
 }
 ```
-Refresh Token
-Endpoint: POST /api/token
-Description: Refreshes the authentication token.
+Refresh Token<br/>
+Endpoint: POST /api/token<br/>
+Description: Refreshes the authentication token.<br/>
 Request:
 ```json
 Copy code
@@ -257,9 +257,9 @@ Copy code
   "accessToken": "new_jwt_token_here"
 }
 ```
-Logout
-Endpoint: POST /api/logout
-Description: Logs out the user and invalidates the token.
+Logout<br/>
+Endpoint: POST /api/logout<br/>
+Description: Logs out the user and invalidates the token.<br/>
 Response:
 ```json
 Copy code
@@ -268,9 +268,9 @@ Copy code
 }
 ```
 ## OTP and Password Management API
-Send OTP
-Endpoint: POST /api/send-otp
-Description: Sends an OTP to the user's email.
+Send OTP<br/>
+Endpoint: POST /api/send-otp<br/>
+Description: Sends an OTP to the user's email.<br/>
 Request:
 ```json
 Copy code
@@ -285,9 +285,9 @@ Copy code
   "message": "OTP sent successfully"
 }
 ```
-Verify OTP
-Endpoint: POST /api/verify-otp
-Description: Verifies the OTP provided by the user.
+Verify OTP<br/>
+Endpoint: POST /api/verify-otp<br/>
+Description: Verifies the OTP provided by the user.<br/>
 Request:
 ```json
 Copy code
@@ -302,9 +302,9 @@ Copy code
   "message": "OTP verified successfully"
 }
 ```
-Change Password
-Endpoint: POST /api/change-password
-Description: Changes the user's password.
+Change Password<br/>
+Endpoint: POST /api/change-password<br/>
+Description: Changes the user's password.<br/>
 Request:
 ```json
 Copy code
@@ -320,9 +320,9 @@ Copy code
   "message": "Password changed successfully"
 }
 ```
-Send Ticket
-Endpoint: POST /api/send-ticket
-Description: Sends a support ticket.
+Send Ticket<br/>
+Endpoint: POST /api/send-ticket<br/>
+Description: Sends a support ticket.<br/>
 Request:
 ```json
 Copy code
@@ -339,7 +339,7 @@ Copy code
 }
 ```
 ## Poll Management API
-Create a New Poll
+Create a New Poll<br/>
 Endpoint: POST /api/polls <br/>
 Description: Creates a new poll. <br/>
 Request:
