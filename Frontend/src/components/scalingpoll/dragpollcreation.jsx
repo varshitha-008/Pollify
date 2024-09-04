@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Box, Button, Heading, Input, VStack, Textarea, InputGroup, InputLeftElement } from '@chakra-ui/react';
-import axios from '../login-signup/api'; // Ensure this path is correct
+import axios from '../login-signup/api'; 
 
 const CreatePollDrag = () => {
   const [title, setTitle] = useState('');

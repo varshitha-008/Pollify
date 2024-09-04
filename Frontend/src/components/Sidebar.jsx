@@ -76,7 +76,7 @@ const Sidebar = ({ isOpen, onClose }) => {
               Analytics
             </Button>
             
-            <Button  variant="solid" size="md" borderRadius="md" _hover={{ bg: 'teal.200' }}>
+            <Button as={Link} to='/video'  variant="solid" size="md" borderRadius="md" _hover={{ bg: 'teal.200' }}>
                     Tutorial
                   </Button>
           </VStack>

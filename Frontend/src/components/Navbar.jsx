@@ -22,7 +22,7 @@ import img from '../assets/Pn.png';
 
 const Navbar = ({ isAuthenticated, onLogout }) => {
   const user = localStorage.getItem('user');
-  const { isOpen, onOpen, onClose } = useDisclosure(); // Control drawer visibility
+  const { isOpen, onOpen, onClose } = useDisclosure(); 
   console.log("is Athenticated",isAuthenticated);
   return (
     <Box
@@ -135,9 +135,6 @@ const Navbar = ({ isAuthenticated, onLogout }) => {
           </>
         )}
       </Flex>
-
-      
-      {/* <Sidebar isOpen={isOpen} onClose={onClose} /> */}
     </Box>
   );
 };

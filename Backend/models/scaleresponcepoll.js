@@ -1,4 +1,4 @@
-// models/PollResponse.js
+
 import mongoose from 'mongoose';
 
 const responseSchema = new mongoose.Schema({
@@ -7,7 +7,6 @@ const responseSchema = new mongoose.Schema({
     ref: 'ScalePoll',
     required: true
   },
-//   userID: { type: mongoose.Types.ObjectId, ref: 'Customer' },
   answers: [{
     questionId: {
       type: mongoose.Schema.Types.ObjectId,

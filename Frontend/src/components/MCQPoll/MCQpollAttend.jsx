@@ -95,7 +95,7 @@ const AttendPoll = () => {
           }
         }),
       };
-      console.log('Submitting payload:', payload);
+      // console.log('Submitting payload:', payload);
 
       const response = await axios.post(`/polls/${pollId}/responses`, payload);
       // console.log('Response submitted:', response.data);

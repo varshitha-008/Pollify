@@ -6,7 +6,7 @@ import { Box, Heading, Select, SimpleGrid, VStack, Text, Icon } from '@chakra-ui
 import { FaChartPie, FaChartBar, FaChartLine } from 'react-icons/fa';
 import io from 'socket.io-client';
 
-const socket = io('https://pollify-yc1z.onrender.com/api');  // Update with your server URL if different
+const socket = io('https://pollify-yc1z.onrender.com/api');  
 
 const TrueFalsePollResponses = () => {
   const { pollId } = useParams();

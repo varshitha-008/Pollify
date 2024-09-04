@@ -74,18 +74,6 @@ const AttendTrueFalsePoll = () => {
 
   if (!poll) return <Text>Loading poll details...</Text>;
 
-  //shared model
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // const handleShareClick = () => {
-  //   setIsModalOpen(true);
-  // };
-
-  // const handleModalClose = () => {
-  //   setIsModalOpen(false);
-  // };
-
-  // const currentUrl = window.location.href;
 
   return (
     <Box w="600px" mx="auto" p={4} borderWidth={1} borderRadius="lg" boxShadow="lg">
@@ -102,12 +90,10 @@ const AttendTrueFalsePoll = () => {
         mb={4}
         variant="outline"
         leftIcon={<FaShareSquare />}
-        // leftIcon={<FaShareAlt />}
       >
         Share This Poll
       </Button>
 
-      {/* Modal for sharing URL */}
       <ShareModal
         isOpen={isModalOpen}
         onClose={handleModalClose}

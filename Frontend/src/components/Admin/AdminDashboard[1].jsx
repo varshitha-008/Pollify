@@ -9,23 +9,10 @@ const Dashboard = () => {
   const [totalPolls, setTotalPolls] = useState(0);
 
   useEffect(() => {
-    // Fetch total users
     axios.get('/allusers')
-      // .then((response) => response.json())
       .then((data) => setTotalUsers(data.total))
       .catch((error) => console.error('Error fetching total users:', error));
 
-    // Fetch total quizzes
-    // fetch('http://localhost:2300/api/totalquizzes')
-    //   .then((response) => response.json())
-    //   .then((data) => setTotalQuizzes(data.total))
-    //   .catch((error) => console.error('Error fetching total quizzes:', error));
-
-    // // Fetch total polls
-    // fetch('http://localhost:2300/api/totalpolls')
-    //   .then((response) => response.json())
-    //   .then((data) => setTotalPolls(data.total))
-    //   .catch((error) => console.error('Error fetching total polls:', error));
   }, []);
 
   return (

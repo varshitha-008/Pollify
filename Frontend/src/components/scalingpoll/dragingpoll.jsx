@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Box, Button, Heading, VStack, Slider, SliderTrack, SliderFilledTrack, SliderThumb, SliderMark, Text, Input } from '@chakra-ui/react';
-import axios from '../login-signup/api'; // Ensure this path is correct
+import axios from '../login-signup/api'; 
 
 const RatingPollAttend = () => {
   const { pollId } = useParams();
@@ -19,8 +19,8 @@ const RatingPollAttend = () => {
       try {
         const response = await axios.get(`/Scalepolls/${pollId}`);
         setPoll(response.data);
-        setResponses(response.data.questions.map(() => 5)); // Default value for slider questions
-        setTextResponses(response.data.questions.map(() => '')); // Initialize textResponses
+        setResponses(response.data.questions.map(() => 5)); 
+        setTextResponses(response.data.questions.map(() => '')); 
       } catch (error) {
         console.error('Error fetching poll:', error.response ? error.response.data : error.message);
       }
@@ -42,7 +42,7 @@ const RatingPollAttend = () => {
   };
 
   const handleSubmit = async () => {
-    const token = localStorage.getItem('accessToken'); // Ensure token is retrieved
+    const token = localStorage.getItem('accessToken'); 
 
     if (!token) {
       alert("You need to be logged in to submit responses.");

@@ -54,15 +54,13 @@ io.on('connection', (socket) => {
     next();
   });
 
-  // Export io for use in the controller
 export { io };
 // app.use(cors());
 
-const allowedOrigins = ['https://pollify-1.onrender.com', 'https://pollify-lz1s.vercel.app'];
+const allowedOrigins = ['https://pollify-1.onrender.com','http://localhost:5173', 'https://pollify-lz1s.vercel.app'];
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Check if the origin is in the allowedOrigins array
     if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
       callback(null, true);
     } else {
@@ -70,7 +68,7 @@ app.use(cors({
     }
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true // Enable cookies
+  credentials: true 
 }));
 
 
@@ -80,7 +78,6 @@ app.use('/api', pollRouter);
 app.use('/api', otpRouter);
 app.use('/api', loginRouter);
 app.use('/api', scalePollRouter);
-// const app = express();
 app.use(cookieParser());
 app.use(
     session({

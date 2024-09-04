@@ -1,21 +1,14 @@
-
-
-
 import React from 'react';
 import { Box, Grid, GridItem, Text, Image, Link, Heading, Button ,Flex} from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-// import CardCarousel from './Caraousal';
 import Footer from './Footer';
 import { Accordion } from './Accordian';
 import CardCarousel from './Caraousal';
-// import CardCarousel from './CardCarousel';
 
 
 const Home = () => {
   return (
     <>
-
-   {/* <Flex gap='100px' flexDirection={"column"} > */}
    <Box p={4}>
     <Box mt={"70px"}
       w={{ base: '100%', md: '1400px' }}
@@ -71,11 +64,9 @@ const Home = () => {
           ))}
         </Grid>
       </Box>
-      {/* <CardCarousel /> */}
 
       <CardCarousel></CardCarousel>
       <Footer />
-      {/* </Flex> */}
     </>
   );
 };

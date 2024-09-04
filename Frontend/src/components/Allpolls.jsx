@@ -77,7 +77,6 @@ const UserPollsResult = () => {
                     {scalepolls.map((poll) => (
                         <GridItem key={poll._id}>
                             <Box
-                                // w="100%"
                                 p={4}
                                 borderWidth={1}
                                 borderRadius="lg"

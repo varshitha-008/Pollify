@@ -13,7 +13,7 @@ const UserPollsResult = () => {
 
   useEffect(() => {
     const fetchPolls = async () => {
-      //   console.log('Token used for request:', token); // Debug line to check token value
+      //   console.log('Token used for request:', token);
       try {
         const response = await api.get('/polls', {
           headers: {
@@ -153,4 +153,3 @@ const UserPollsResult = () => {
 };
 
 export default UserPollsResult;
-// use grid and show all make it responsive all boxes in same style  don't remove commented lines

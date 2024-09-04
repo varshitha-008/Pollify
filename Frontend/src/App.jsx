@@ -9,12 +9,10 @@ import RegisterForm from './components/login-signup/Signup';
 import ForgotPassword from './components/login-signup/forgotpassword';
 import ChangePassword from './components/login-signup/ChangePassword';
 import AttendPoll from './components/MCQPoll/MCQpollAttend';
-// import pollMcqres from './components/MCQPoll/pollchart';
-
 import CreatePollDrag from './components/scalingpoll/dragpollcreation';
 import RatingPollAttend from './components/scalingpoll/dragingpoll';
 import PollResults from './components/scalingpoll/ScalePollResult';
-// import UserPolls from './components/Allpolls';
+
 import CreateTrueFalsePoll from './components/TrueOrFalse/CreateTrueOrFalsePoll';
 import AllTrueFalsePolls from './components/TrueOrFalse/AllTrueFalsePolls';
 import AttendTrueFalsePoll from './components/TrueOrFalse/AttendTrueFalsePoll';
@@ -30,6 +28,7 @@ import Ticket from './components/Ticket';
 import AdminPanel from './components/Admin/AdminPanels';
 import PollMcqres from './components/MCQPoll/pollchart';
 import UserPolls from './components/Allpolls';
+import Tutorial from './components/Tutorial';
 
 const App = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -99,7 +98,7 @@ const App = () => {
                 <Route path='/showallcreations' element={<PollButtons/>}/>
                 <Route path='/polldrag' element={<CreatePollDrag/>}/>
                 <Route path="/polls/:pollId" element={<AttendPoll />} />
-                
+                <Route path='/video' element={<Tutorial/>}/>
                 <Route path="/polls/:pollId/responses" element={<PollMcqres />} />
 
                 <Route path="/Scalepolls/:pollId" element={<RatingPollAttend />} />
