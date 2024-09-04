@@ -58,11 +58,22 @@ io.on('connection', (socket) => {
 export { io };
 // app.use(cors());
 
+const allowedOrigins = ['https://pollify-1.onrender.com', 'https://pollify-lz1s.vercel.app'];
+
 app.use(cors({
-  origin: 'https://pollify-1.onrender.com', // URL of your frontend application
+  origin: function (origin, callback) {
+    // Check if the origin is in the allowedOrigins array
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true // Enable cookies
 }));
+
+
 app.use(express.json());
 app.use(bodyParser.json());
 app.use('/api', pollRouter);
